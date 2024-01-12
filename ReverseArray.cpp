@@ -1,24 +1,43 @@
-#include<iostream>
+/*Given an array/list 'ARR' of integers and a position ‘M’. You have to reverse the array after that position.
+
+Example:
+
+We have an array ARR = {1, 2, 3, 4, 5, 6} and M = 3 , considering 0 
+based indexing so the subarray {5, 6} will be reversed and our 
+output array will be {1, 2, 3, 4, 6, 5}.*/
+
+#include <iostream>
+#include<vector>
 using namespace std;
 
-void reverse(int arr[],int n){
-    int start=0;
-    int end = n-1;
-    while(start<=end){
-        swap(arr[start],arr[end]);
-        start++;
-        end--;
+vector<int> reverse(vector<int> v , int m){
+    int s = m+1 , e = v.size()-1;
+    while(s <= e){
+        swap(v[s], v[e]);
+        s ++ ;
+        e -- ;
     }
+    return v;
 }
-void printArray(int arr[],int n){
-    for(int i=0; i<n; i++){
-        cout<<arr[i] << " ";
+void printArray(vector <int> v){
+    for(int i = 0; i < v.size(); i++){
+        cout<< v[i]<< " ";
     }
-    cout<<endl;
+    cout << endl;
 }
+
 int main(){
-    int arr[6]={1,4,0,5,-2,15};
-    reverse(arr,6);
-    printArray(arr,6);
+     vector<int> v;
+     v.push_back(11);
+     v.push_back(7);
+     v.push_back(3);
+     v.push_back(12);
+     v.push_back(21);
+
+      vector<int> ans = reverse(v, 1);
+      printArray(ans);
+
     return 0;
 }
+
+
