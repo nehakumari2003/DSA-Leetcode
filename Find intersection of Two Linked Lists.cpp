@@ -63,8 +63,10 @@ int main() {
     insertNode(headSec,3);
     node* head2 = headSec;
     headSec->next = head;
+    //printing of the lists
     cout<<"List1: "; printList(head1);
     cout<<"List2: "; printList(head2);
+    //checking if intersection is present
     node* answerNode = intersectionPresent(head1,head2);
     if(answerNode == NULL )
     cout<<"No intersection\n";
