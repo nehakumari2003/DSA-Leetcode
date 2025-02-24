@@ -1,28 +1,19 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
-int binarySearch(int arr[], int size, int key){
-    int start = 0;
-    int end = size-1;
-    int mid = start + (end-start)/2;
-    while(start <=end){
-        if(arr[mid] == key){
-            return mid;
 
-        }
-        else if (key > arr[mid]){
-            start = mid + 1;
-        }
-        else{
-            end = mid - 1;
-        }
-        mid = start + (end - start)/2;
+int binarySearch(int arr[], int n, int target) {
+    int left = 0, right = n - 1;
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+        if (arr[mid] == target) return mid;
+        else if (arr[mid] < target) left = mid + 1;
+        else right = mid - 1;
     }
     return -1;
 }
-int main(){
-    int even[6]={2, 4, 6, 8, 12, 18 };
-    int evenIndex = binarySearch(even, 6, 8);
-    cout << "The index of 8 is " <<evenIndex <<endl;
 
-return 0;
+int main() {
+    int arr[] = {1, 3, 5, 7, 9};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    cout << "Index: " << binarySearch(arr, n, 7);
 }
